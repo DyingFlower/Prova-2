@@ -1,0 +1,52 @@
+package Penaltis;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class Gol extends JPanel{
+	public Label label;
+	public Gol() {
+		setBackground(Color.GREEN);
+		add(criarTodosBotoes());
+
+	}
+	public JPanel criarTodosBotoes() {
+		JPanel p= new JPanel();
+		Botao botao=new Botao(this, label);
+		p.setLayout(new GridLayout(9,17));
+		Goleiro goleiro = new Goleiro();
+		for(int i =0;i<153;i++) {
+			if(i==18||i==19||i==20||i==21||i==22||i==23||i==24||i==25||i==26||i==27||i==28||i==29||i==30||i==31||i==32||i==35||i==49||i==52||i==66||i==69||i==83||i==86||i==100||i==103||i==117||i==120||i==134||i==137||i==151) {
+				if(i==goleiro.randomizargoleiro()) {
+					p.add(botao.CriarBotoes("Goleiro"));
+				}
+				else {
+					p.add(botao.CriarBotoes("Trave"));
+				}
+			}
+			else if(i==0||i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==15||i==16||i==17||i==33||i==34||i==50||i==51||i==67||i==68||i==84||i==85||i==101||i==102||i==118||i==119||i==135||i==136||i==152) {
+				if(i==goleiro.randomizargoleiro()) {
+					p.add(botao.CriarBotoes("Goleiro"));
+				}
+				else {
+					p.add(botao.CriarBotoes("Fora"));
+				}	
+			}
+			else {
+				if(i==goleiro.randomizargoleiro()) {
+					p.add(botao.CriarBotoes("Goleiro"));
+				}
+				else {
+					p.add(botao.CriarBotoes("Gol"));
+				}
+			}
+			
+		}
+		return p;
+	}
+}
